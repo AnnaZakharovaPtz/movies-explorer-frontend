@@ -1,0 +1,130 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+}
+
+.navigation__burger-button {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 1);
+  background-image: url(../../images/menu-icon-dark.svg);
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation__burger-button:hover {
+  opacity: .8;
+}
+
+.navigation__burger-button_light {
+  background-image: url(../../images/menu-icon-light.svg);
+  background-color: transparent;
+}
+
+.navigation__signup-link {
+  color: rgba(255, 255, 255, 1);
+  text-align: right;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+.navigation__signup-link:hover {
+  opacity: .7;
+}
+
+.navigation__signin-link {
+  color: rgba(0, 0, 0, 1);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  background-color: rgba(43, 224, 128, 1);
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 8px 20px;
+  margin-left: 30px;
+}
+
+.navigation__signin-link:hover {
+  opacity: .7;
+}
+
+.navigation__profile-link {
+  display: block;
+  background-image: url(../../images/profile-light.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 32px;
+}
+
+.navigation__profile-link:hover {
+  opacity: .8;
+}
+
+.navigation__profile-link_dark {
+  background-image: url(../../images/profile-dark.svg);
+}
+
+.navigation__saved-movies-link {
+  /* margin-right: 364px; */
+  color: rgba(0, 0, 0, 1);
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.navigation__saved-movies-link:hover {
+  opacity: .7;
+}
+
+.navigation__saved-movies-link_dark {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+}
+
+.navigation__movies-link {
+  color: rgba(0, 0, 0, 1);
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.navigation__movies-link:hover {
+  opacity: .7;
+}
+
+.navigation__movies-link_dark {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+}
+
+@media screen and (max-width: 580px) {
+  .navigation__signin-link {
+    font-size: 10px;
+    margin-left: 14px;
+  }
+
+  .navigation__signup-link {
+    font-size: 10px;
+  }
+
+  .navigation__burger-button {
+    width: 40px;
+    height: 43px;
+  }
+
+}
