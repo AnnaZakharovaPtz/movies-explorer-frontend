@@ -3,7 +3,7 @@ import Logo from '../Logo/Logo';
 import './Navigation.css';
 
 function Navigation({ isDark, isScreenSmall, setMenuOpen }) {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   function handleMenuOpen() {
     setMenuOpen(true);

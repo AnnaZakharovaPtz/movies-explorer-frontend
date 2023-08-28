@@ -71,11 +71,6 @@
 }
 
 .profile__logout {
-  color: rgba(255, 48, 85, 1);
-  text-align: center;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: normal;
   width: 100%;
   border: none;
   background-color: transparent;
@@ -85,6 +80,15 @@
 
 .profile__logout:hover {
   opacity: .7;
+}
+
+.profile__logout-link {
+  color: rgba(255, 48, 85, 1);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {

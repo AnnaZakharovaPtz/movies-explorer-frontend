@@ -5,7 +5,7 @@ import photo from '../../images/student.jpg';
 function AboutMe() {
   return (
     <section className='student'>
-      <h2 className='student__title'>Студент</h2>
+      <h2 className='student__title'>Студентка</h2>
       <LandingUnderline />
       <div className='student__info'>
         <div className='student__profile'>
@@ -21,7 +21,7 @@ function AboutMe() {
           </p>
           <a className='student__link' href='https://github.com/AnnaZakharovaPtz' target='blank'>Github</a>
         </div>
-        <img className='student__photo' src={photo} alt='Фото студента' />
+        <img className='student__photo' src={photo} alt='Фото студентки Анны Захаровой' />
       </div>
     </section>
   );

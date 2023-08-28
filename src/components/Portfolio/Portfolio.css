@@ -45,17 +45,25 @@
 }
 
 .portfolio__item-link {
-  height: 40px;
-  width: 29px;
   text-decoration: none;
-  background-image: url(../../images/portfolio-link-icon-l.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 5px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 19px;
 }
 
 .portfolio__item-link:hover {
   opacity: .7;
+}
+
+.portfolio__item-icon {
+  background-image: url(../../images/portfolio-link-icon-l.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 5px 0;
+  height: 40px;
+  width: 29px;
 }
 
 @media screen and (max-width: 768px) {
