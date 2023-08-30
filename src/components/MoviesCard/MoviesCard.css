@@ -1,4 +1,4 @@
-.movies-card__container {
+.movies-card {
   display: flex;
   flex-direction: column;
   font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
@@ -37,12 +37,14 @@
 
 
 .movies-card__duration {
-  margin: 6px 0 0 0;
+  margin: 0;
+  padding-top: 6px;
   text-align: left;
   color: rgba(160, 160, 160, 1);
   font-size: 11px;
   font-weight: 400;
   line-height: normal;
+  border-top: 1px solid rgba(232, 232, 232, 1);
 }
 
 

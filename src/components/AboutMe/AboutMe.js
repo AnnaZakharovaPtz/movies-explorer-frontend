@@ -1,12 +1,10 @@
 import './AboutMe.css';
-import LandingUnderline from '../LandingUnderline/LandingUnderline';
 import photo from '../../images/student.jpg';
 
 function AboutMe() {
   return (
     <section className='student'>
       <h2 className='student__title'>Студентка</h2>
-      <LandingUnderline />
       <div className='student__info'>
         <div className='student__profile'>
           <h3 className='student__name'>Анна</h3>

@@ -29,6 +29,14 @@
   color: #000;
   font-size: 14px;
   font-weight: 500;
+  margin-bottom: 24px;
+  outline: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.login__form-input:focus {
+  border-bottom: 1px solid rgba(52, 86, 243, 1);
 }
 
 .login__form-line {
@@ -40,6 +48,7 @@
 }
 
 .login__form-name {
+  display: block;
   color: rgba(160, 160, 160, 1);
   font-size: 10px;
   font-weight: 400;

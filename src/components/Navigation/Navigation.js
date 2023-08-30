@@ -3,7 +3,7 @@ import Logo from '../Logo/Logo';
 import './Navigation.css';
 
 function Navigation({ isDark, isScreenSmall, setMenuOpen }) {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   function handleMenuOpen() {
     setMenuOpen(true);
@@ -25,7 +25,7 @@ function Navigation({ isDark, isScreenSmall, setMenuOpen }) {
           />
         ) : (
           <>
-            <div>
+            <div className='navigation__links-container'>
               <Link className={
                 isDark
                   ? 'navigation__movies-link navigation__movies-link_dark'
@@ -52,12 +52,14 @@ function Navigation({ isDark, isScreenSmall, setMenuOpen }) {
       :
       <nav className='navigation'>
         <Logo />
-        <Link className='navigation__signup-link' to='/signup'>
-          Регистрация
-        </Link>
-        <Link className='navigation__signin-link' to='/signin'>
-          Войти
-        </Link>
+        <div>
+          <Link className='navigation__signup-link' to='/signup'>
+            Регистрация
+          </Link>
+          <Link className='navigation__signin-link' to='/signin'>
+            Войти
+          </Link>
+        </div>
       </nav>
   );
 }

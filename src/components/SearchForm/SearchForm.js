@@ -1,4 +1,3 @@
-import LandingUnderlineLight from '../LandingUnderlineLight/LandingUnderlineLight';
 import './SearchForm.css';
 
 function SearchForm() {
@@ -17,7 +16,6 @@ function SearchForm() {
         />
         <button className="search-form__submit" type="submit">Найти</button>
       </div>
-      <LandingUnderlineLight />
       <label className='search-form__checkbox-container'>
         <input
           className='search-form__input'

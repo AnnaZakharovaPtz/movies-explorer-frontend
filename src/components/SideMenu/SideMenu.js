@@ -16,32 +16,33 @@ function SideMenu({ menuOpen, setMenuOpen }) {
           aria-label='Закрыть'
           onClick={handleCloseButtonClick}
         />
-        <ul className='side-menu__items'>
-          <li className='side-menu__item'>
-            <NavLink
-              className={({ isActive }) => (isActive ? 'side-menu__link side-menu__link_active' : 'side-menu__link')}
-              to='/'>
-              Главная
-            </NavLink>
-          </li>
-          <li className='side-menu__item'>
-            <NavLink
-              className={({ isActive }) => (isActive ? 'side-menu__link side-menu__link_active' : 'side-menu__link')}
-              to='/movies'>
-              Фильмы
-            </NavLink>
-          </li>
-          <li className='side-menu__item'>
-            <NavLink
-              className={({ isActive }) => (isActive ? 'side-menu__link side-menu__link_active' : 'side-menu__link')}
-              to='/saved-movies'>
-              Сохранённые фильмы
-            </NavLink>
-          </li>
-          <li className='side-menu__item'>
-            <Link className='side-menu__profile-link' to='/profile' />
-          </li>
-        </ul>
+        <div className='side-menu__links-container'>
+          <ul className='side-menu__items'>
+            <li className='side-menu__item'>
+              <NavLink
+                className={({ isActive }) => (isActive ? 'side-menu__link side-menu__link_active' : 'side-menu__link')}
+                to='/'>
+                Главная
+              </NavLink>
+            </li>
+            <li className='side-menu__item'>
+              <NavLink
+                className={({ isActive }) => (isActive ? 'side-menu__link side-menu__link_active' : 'side-menu__link')}
+                to='/movies'>
+                Фильмы
+              </NavLink>
+            </li>
+            <li className='side-menu__item'>
+              <NavLink
+                className={({ isActive }) => (isActive ? 'side-menu__link side-menu__link_active' : 'side-menu__link')}
+                to='/saved-movies'>
+                Сохранённые фильмы
+              </NavLink>
+            </li>
+          </ul>
+
+          <Link className='side-menu__profile-link' to='/profile' />
+        </div>
       </nav>
     </div>
   );

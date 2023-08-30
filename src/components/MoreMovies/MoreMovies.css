@@ -4,7 +4,8 @@
   border-radius: 6px;
   width: 320px;
   height: 36px;
-  margin: 50px auto 80px auto;
+  margin: 56px auto 99px auto;
+  cursor: pointer;
 
   color: rgba(0, 0, 0, 1);
   text-align: center;
@@ -15,8 +16,21 @@
   line-height: normal;
 }
 
-@media screen and (max-width: 728px) {
+.more-movies:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 768px) {
   .more-movies {
     width: 240px;
+    margin-top: 48px;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .more-movies {
+    margin-top: 52px;
+    margin-bottom: 56px;
   }
 }

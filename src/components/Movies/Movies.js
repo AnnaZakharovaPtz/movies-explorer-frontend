@@ -6,18 +6,18 @@ import MoreMovies from '../MoreMovies/MoreMovies';
 import Footer from '../Footer/Footer';
 import './Movies.css';
 import '../Main/Main.css';
-import SideMenu from '../SideMenu/SideMenu';
 
 function Movies() {
   return (
     <div className='page'>
       <Header />
-      <SearchForm />
-      {/* <Preloader /> */}
-      <MoviesCardList />
-      <MoreMovies />
+      <main>
+        <SearchForm />
+        {/* <Preloader /> */}
+        <MoviesCardList />
+        <MoreMovies />
+      </main>
       <Footer />
-      {/* <SideMenu /> */}
     </div>
   );
 }

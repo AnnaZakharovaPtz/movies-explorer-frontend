@@ -32,10 +32,8 @@ function Header() {
   useEffect(() => {
     if ((windowWidth <= 768) && (isScreenSmall === false)) {
       setIsScreenSmall(true);
-      console.log("upd_true");
     } else if ((windowWidth > 768) && (isScreenSmall === true)) {
       setIsScreenSmall(false);
-      console.log("upd_false");
     }
   }, [windowWidth]);
 

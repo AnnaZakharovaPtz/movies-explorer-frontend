@@ -8,6 +8,11 @@
   font-style: normal;
 }
 
+.navigation__links-container {
+  display: flex;
+  margin-left: 63px;
+}
+
 .navigation__burger-button {
   width: 44px;
   height: 44px;
@@ -116,6 +121,7 @@
   .navigation__signin-link {
     font-size: 10px;
     margin-left: 14px;
+    padding: 5px 12px;
   }
 
   .navigation__signup-link {

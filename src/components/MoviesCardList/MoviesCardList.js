@@ -3,8 +3,32 @@ import './MoviesCardList.css';
 
 function MoviesCardList() {
   return (
-    <section>
+    <section className='movies-list'>
       <ul className='movies-list__items'>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
+        <li className='movies-list__item'>
+          <MoviesCard />
+        </li>
         <li className='movies-list__item'>
           <MoviesCard />
         </li>

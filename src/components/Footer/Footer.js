@@ -1,11 +1,9 @@
 import './Footer.css';
-import LandingUnderlineLight from '../LandingUnderlineLight/LandingUnderlineLight';
 
 function Footer() {
   return (
-    <section className='footer'>
+    <footer className='footer'>
       <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
-      <LandingUnderlineLight />
       <div className='footer__info'>
         <p className='footer__copyright'>&copy; 2023. Анна Захарова</p>
         <nav className='footer__menu'>
@@ -19,7 +17,7 @@ function Footer() {
           </ul>
         </nav>
       </div>
-    </section >
+    </footer >
   );
 }
 

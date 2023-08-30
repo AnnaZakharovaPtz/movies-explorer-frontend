@@ -1,11 +1,9 @@
 import './AboutProject.css';
-import LandingUnderline from '../LandingUnderline/LandingUnderline';
 
 function AboutProject() {
   return (
     <section className='about-project' id={'about-project'}>
       <h2 className='about-project__title'>О проекте</h2>
-      <LandingUnderline />
       <div className='about-project__table'>
         <div className='about-project__table-cell'>
           <h3 className='about-project__subtitle'>Дипломный проект включал 5 этапов</h3>

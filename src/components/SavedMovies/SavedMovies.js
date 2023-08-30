@@ -7,11 +7,14 @@ import './SavedMovies.css';
 
 function SavedMovies() {
   return (
-    <div>
+    <div className='page'>
       <Header />
-      <SearchForm />
-      {/* <Preloader /> */}
-      <MoviesCardList />
+      <main>
+        <SearchForm />
+        {/* <Preloader /> */}
+        <MoviesCardList />
+        <div className='saved-movies-container'></div>
+      </main>
       <Footer />
     </div>
   );

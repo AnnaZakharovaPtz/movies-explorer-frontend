@@ -2,7 +2,7 @@ import './MoreMovies.css';
 
 function MoreMovies() {
   return (
-    <button className='more-movies'>Ещё</button>
+    <button className='more-movies' type='button'>Ещё</button>
   );
 }
 
