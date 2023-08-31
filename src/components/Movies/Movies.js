@@ -1,0 +1,25 @@
+import Header from '../Header/Header';
+import SearchForm from '../SearchForm/SearchForm';
+import Preloader from '../Preloader/Preloader';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import MoreMovies from '../MoreMovies/MoreMovies';
+import Footer from '../Footer/Footer';
+import './Movies.css';
+import '../Main/Main.css';
+
+function Movies() {
+  return (
+    <div className='page'>
+      <Header />
+      <main>
+        <SearchForm />
+        {/* <Preloader /> */}
+        <MoviesCardList />
+        <MoreMovies />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default Movies;

@@ -1,0 +1,16 @@
+.saved-movies-container {
+  width: 100%;
+  height: 258px;
+}
+
+@media screen and (max-width: 768px) {
+  .saved-movies-container {
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .saved-movies-container {
+    height: 117px;
+  }
+}

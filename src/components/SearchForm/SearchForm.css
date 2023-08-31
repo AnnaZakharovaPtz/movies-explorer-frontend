@@ -1,0 +1,134 @@
+.search-form {
+  margin: 70px 70px 0 70px;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+}
+
+
+.search-form__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 11px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.search-form__input {
+  color: rgba(160, 160, 160, 1);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+  outline: 0;
+}
+
+.search-form__submit {
+  width: 58px;
+  height: 34px;
+  background-color: rgba(52, 86, 243, 1);
+  border: none;
+  border-radius: 48px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-left: 31px;
+}
+
+.search-form__submit:hover {
+  opacity: .8;
+}
+
+.search-form__checkbox-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-top: 32px;
+  margin-bottom: 49px;
+
+  color: rgba(0, 0, 0, 1);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.search-form__checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.search-form__checkmark {
+  height: 20px;
+  width: 36px;
+  margin-right: 14px;
+  background-image: url(../../images/smalltumb-off.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.search-form__checkmark:hover {
+  opacity: .8;
+}
+
+.search-form__checkbox-container input:checked~.search-form__checkmark {
+  background-image: url(../../images/smalltumb.svg);
+}
+
+.search-form__input {}
+
+.search-form__checkbox-label {
+  color: rgba(0, 0, 0, 1);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-left: 14px;
+}
+
+@media screen and (max-width: 910px) {
+  .search-form {
+    margin: 80px 30px 0 30px;
+  }
+
+  .search-form__checkbox-container {
+    margin-top: 30px;
+    margin-bottom: 61px;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+
+  .search-form__checkmark {
+    margin: 0 0 0 16px;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .search-form {
+    margin: 82px 14px 0 14px;
+  }
+
+  .search-form__input {
+    font-size: 18px;
+    max-width: 180px;
+  }
+
+  .search-form__checkbox-container {
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-bottom: 51px;
+    margin-top: 41px;
+    font-size: 11px;
+  }
+
+  .search-form__checkbox-label {
+    margin-left: 0;
+    margin-right: 13px;
+  }
+
+
+}

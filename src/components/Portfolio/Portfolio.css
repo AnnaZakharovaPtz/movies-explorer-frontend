@@ -1,0 +1,120 @@
+.portfolio {
+  padding: 0 70px;
+  margin-bottom: 125px;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+}
+
+.portfolio__title {
+  margin: 0 0 30px 0;
+  color: rgba(160, 160, 160, 1);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+.portfolio__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio__list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.portfolio__list-item_last {
+  border: none;
+}
+
+.portfolio__item-container {
+  padding-top: 20px;
+  padding-bottom: 19px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.portfolio__item-text {
+  margin: 0;
+  color: rgba(0, 0, 0, 1);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  text-align: left;
+}
+
+.portfolio__item-link {
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 19px;
+}
+
+.portfolio__item-link:hover {
+  opacity: .7;
+}
+
+.portfolio__item-icon {
+  background-image: url(../../images/portfolio-link-icon-l.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 5px 0;
+  height: 40px;
+  width: 29px;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 0 50px 70px 50px;
+    margin-bottom: 0;
+  }
+
+  .portfolio__title {
+    margin: 0 0 30px 0;
+  }
+
+  .portfolio__item-text {
+    font-size: 28px;
+  }
+
+  .portfolio__item-icon {
+    background-image: url(../../images/portfolio-link-icon-m.svg);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .portfolio {
+    padding: 0 14px;
+    margin-bottom: 28px;
+  }
+
+  .portfolio__title {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+  }
+
+  .portfolio__item-text {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__item-icon {
+    height: 28px;
+    width: 18px;
+    padding: 0;
+    background-image: url(../../images/portfolio-link-icon-s.svg);
+  }
+}
