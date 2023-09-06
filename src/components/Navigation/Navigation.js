@@ -8,7 +8,7 @@ function Navigation({ loggedIn, isDark, isScreenSmall, setMenuOpen }) {
   }
 
   return (
-    loggedIn ?
+    loggedIn === 'loggedIn' ?
       <nav className='navigation'>
         <Logo />
         {isScreenSmall ? (

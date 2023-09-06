@@ -1,7 +1,7 @@
 import './MoviesCard.css';
 import { useEffect, useState } from 'react';
 
-function MoviesCard({ movie, onLikeClick, savedMoviesList }) {
+function MoviesCard({ movie, onLikeClick, savedMoviesList, isBlocked }) {
   const [isSaved, setIsSaved] = useState(false);
   const [savedMovieId, setSavedMovieId] = useState('');
 
@@ -23,7 +23,7 @@ function MoviesCard({ movie, onLikeClick, savedMoviesList }) {
   }
 
   function handleLikeButtonClick() {
-    onLikeClick(movie, isSaved, savedMovieId);
+    onLikeClick(movie, isSaved, savedMovieId).then((id) => { setSavedMovieId(id); });
     setIsSaved(!isSaved);
   }
 
@@ -56,6 +56,7 @@ function MoviesCard({ movie, onLikeClick, savedMoviesList }) {
                 : 'movies-card__like-button'
             }
             type='button'
+            disabled={isBlocked}
             onClick={handleLikeButtonClick}
             aria-label='Сохранить'>
           </button>

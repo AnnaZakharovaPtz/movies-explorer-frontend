@@ -17,7 +17,7 @@ import { CONFLICT_ERROR_MSG, PROFILE_UPDATE_MSG, AUTH_DATA_ERROR_MSG } from '../
 import './App.css';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState('');
   const [currentUser, setCurrentUser] = useState({});
   const [serverError, setServerError] = useState('');
   const [infoToolTipState, setInfoToolTipState] = useState({
@@ -33,7 +33,7 @@ function App() {
       auth.getContent(jwt)
         .then(res => {
           if (res) {
-            setLoggedIn(true);
+            setLoggedIn('loggedIn');
             setCurrentUser(res);
           }
         })
@@ -45,6 +45,8 @@ function App() {
           setIsInfoToolTipOpen(true);
           navigate('/signin');
         });
+    } else {
+      setLoggedIn('loggedOut');
     }
   }
 
@@ -80,7 +82,7 @@ function App() {
       .then(data => {
         if (data.token) {
           localStorage.setItem('jwt', data.token);
-          setLoggedIn(true);
+          setLoggedIn('loggedIn');
           getCurrentUser();
         }
       })
@@ -131,7 +133,7 @@ function App() {
       localStorage.removeItem('search-request');
       localStorage.removeItem('short-film');
       localStorage.removeItem('saved-movies');
-      setLoggedIn(false);
+      setLoggedIn('loggedOut');
       setCurrentUser({});
       navigate('/');
     }

@@ -17,6 +17,7 @@ function Movies({ loggedIn }) {
   const [movies, setMovies] = useState([]);
   const [moviesToShow, setMoviesToShow] = useState([]);
   const [isMoreMoviesVisible, setIsMoreMoviesVisible] = useState(false);
+  const [isLikeButtonBlocked, setIsLikeButtonBlocked] = useState(false);
   const [moviesToAddCount, setMoviesToAddCount] = useState(0);
   const [emptySearchRes, setEmptySearchRes] = useState(true);
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(false);
@@ -110,22 +111,28 @@ function Movies({ loggedIn }) {
   }
 
   function handleLikeClick(movie, isSaved, id) {
+    setIsLikeButtonBlocked(true);
     if (!isSaved) {
-      mainApi.saveMovie(movie)
-        .then(() => {
+      return mainApi.saveMovie(movie)
+        .then((res) => {
+          setIsLikeButtonBlocked(false);
           getSavedMovies();
+          return res._id;
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      mainApi.deleteMovie(id)
+      return mainApi.deleteMovie(id)
         .then((res) => {
+          setIsLikeButtonBlocked(false);
           if (res) {
             getSavedMovies();
+            return res._id;
           }
         })
         .catch((err) => {
+          setIsLikeButtonBlocked(false);
           console.log(err);
         });
     }
@@ -231,7 +238,11 @@ function Movies({ loggedIn }) {
           <p className='movies__empty-result' style={{ display: errorResult ? 'flex' : 'none' }}>
             {errorResult}
           </p>
-          <MoviesCardList movies={moviesToShow} onLikeClick={handleLikeClick} />
+          <MoviesCardList
+            movies={moviesToShow}
+            onLikeClick={handleLikeClick}
+            isBlocked={isLikeButtonBlocked}
+          />
           <MoreMovies
             onMoreClick={handleMoreMoviesClick}
             isMoreMoviesVisible={isMoreMoviesVisible}

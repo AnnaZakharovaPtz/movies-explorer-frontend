@@ -1,7 +1,7 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
 
-function MoviesCardList({ movies, onLikeClick, savedMoviesList }) {
+function MoviesCardList({ movies, onLikeClick, savedMoviesList, isBlocked }) {
   return (
     <section className='movies-list'>
       <ul className='movies-list__items'>
@@ -9,7 +9,12 @@ function MoviesCardList({ movies, onLikeClick, savedMoviesList }) {
           movies.map((movie) => {
             return (
               <li key={movie.id ? movie.id : movie._id} className='movies-list__item'>
-                <MoviesCard movie={movie} onLikeClick={onLikeClick} savedMoviesList={savedMoviesList} />
+                <MoviesCard
+                  movie={movie}
+                  onLikeClick={onLikeClick}
+                  isBlocked={isBlocked}
+                  savedMoviesList={savedMoviesList}
+                />
               </li>
             );
           })

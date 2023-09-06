@@ -42,6 +42,10 @@
   background-image: url(../../images/like.svg);
 }
 
+.movies-card__like-button:disabled {
+  cursor: default;
+}
+
 .movies-card__delete-saved-movie {
   background-color: rgba(255, 255, 255, 1);
   width: 24px;
