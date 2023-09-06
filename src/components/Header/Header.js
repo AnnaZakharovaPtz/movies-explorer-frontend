@@ -4,7 +4,7 @@ import SideMenu from '../SideMenu/SideMenu';
 import Navigation from '../Navigation/Navigation';
 import { useEffect, useState } from 'react';
 
-function Header() {
+function Header({ loggedIn }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isScreenSmall, setIsScreenSmall] = useState(windowWidth <= 768);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,6 +44,7 @@ function Header() {
         isDark={isDarkHeader}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
+        loggedIn={loggedIn}
       />
       <SideMenu
         menuOpen={menuOpen}

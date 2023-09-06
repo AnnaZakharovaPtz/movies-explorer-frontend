@@ -8,7 +8,7 @@ function AboutMe() {
       <div className='student__info'>
         <div className='student__profile'>
           <h3 className='student__name'>Анна</h3>
-          <p className='student__profession'>Фронтенд-разработчик, 33 года</p>
+          <p className='student__profession'>Фронтенд-разработчик, 34 года</p>
           <p className='student__description'>
             Я из города Петрозаводска. Закончила Петрозаводский государственный
             университет по специальности "Информационные системы и технологии".

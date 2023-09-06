@@ -1,7 +1,6 @@
 import './InfoToolTip.css';
 
-function InfoToolTip() {
-  const isOpen = false;
+function InfoToolTip({ isOpen, onClose, state }) {
   return (
     <div className={
       isOpen
@@ -9,6 +8,7 @@ function InfoToolTip() {
         : `info-tool-tip`}>
       <div className="info-tool-tip__container">
         <button
+          onClick={onClose}
           className="info-tool-tip__close"
           type="button"
           aria-label="Закрыть">
@@ -17,8 +17,8 @@ function InfoToolTip() {
           <img
             className="info-tool-tip__icon"
             alt='Иконка статуса'
-            src={false ? require('../../images/ok-icon.svg').default : require('../../images/error-icon.svg').default} />
-          <p className="info-tool-tip__message">Сообщение</p>
+            src={state.status ? require('../../images/ok-icon.svg').default : require('../../images/error-icon.svg').default} />
+          <p className="info-tool-tip__message">{state.message}</p>
         </div>
       </div>
     </div >

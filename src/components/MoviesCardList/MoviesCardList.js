@@ -1,58 +1,19 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
 
-function MoviesCardList() {
+function MoviesCardList({ movies, onLikeClick, savedMoviesList }) {
   return (
     <section className='movies-list'>
       <ul className='movies-list__items'>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
-        <li className='movies-list__item'>
-          <MoviesCard />
-        </li>
+        {
+          movies.map((movie) => {
+            return (
+              <li key={movie.id} className='movies-list__item'>
+                <MoviesCard movie={movie} onLikeClick={onLikeClick} savedMoviesList={savedMoviesList} />
+              </li>
+            );
+          })
+        }
       </ul>
     </section>
   );
