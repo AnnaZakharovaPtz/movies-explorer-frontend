@@ -8,7 +8,7 @@ function MoviesCardList({ movies, onLikeClick, savedMoviesList }) {
         {
           movies.map((movie) => {
             return (
-              <li key={movie.id} className='movies-list__item'>
+              <li key={movie.id ? movie.id : movie._id} className='movies-list__item'>
                 <MoviesCard movie={movie} onLikeClick={onLikeClick} savedMoviesList={savedMoviesList} />
               </li>
             );

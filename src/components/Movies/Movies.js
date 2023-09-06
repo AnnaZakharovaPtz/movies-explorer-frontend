@@ -13,7 +13,11 @@ import './Movies.css';
 import '../Main/Main.css';
 
 function Movies({ loggedIn }) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [movies, setMovies] = useState([]);
+  const [moviesToShow, setMoviesToShow] = useState([]);
+  const [isMoreMoviesVisible, setIsMoreMoviesVisible] = useState(false);
+  const [moviesToAddCount, setMoviesToAddCount] = useState(0);
   const [emptySearchRes, setEmptySearchRes] = useState(true);
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(false);
   const [searchForm, setSearchForm] = useState({ request: '', short: false });
@@ -57,9 +61,10 @@ function Movies({ loggedIn }) {
         }
         setIsPreloaderVisible(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setErrorResult(MOVIES_PROCESS_ERROR);
-        setEmptySearchRes(true);
+        setEmptySearchRes(false);
+        setIsPreloaderVisible(false);
         setMovies([]);
       });
   }
@@ -126,6 +131,57 @@ function Movies({ loggedIn }) {
     }
   }
 
+  function handleMoreMoviesClick(moviesToAdd) {
+    const moviesToShowCount = moviesToShow.length + moviesToAdd;
+    setMoviesToShow(movies.slice(0, moviesToShowCount));
+    setIsMoreMoviesVisible(moviesToShowCount < movies.length);
+  }
+
+  function setUpMoviesToShow() {
+    let moviesCount;
+    if (windowWidth >= 1160) {
+      moviesCount = 16;
+      if (movies.length > moviesCount) {
+        setMoviesToShow(movies.slice(0, moviesCount));
+        setIsMoreMoviesVisible(true);
+        setMoviesToAddCount(4);
+      } else {
+        setMoviesToShow(movies);
+      }
+    } else if (windowWidth >= 910) {
+      moviesCount = 12;
+      if (movies.length > moviesCount) {
+        setMoviesToShow(movies.slice(0, moviesCount));
+        setIsMoreMoviesVisible(true);
+        setMoviesToAddCount(3);
+      } else {
+        setMoviesToShow(movies);
+      }
+    } else if (windowWidth >= 728) {
+      moviesCount = 8;
+      if (movies.length > moviesCount) {
+        setMoviesToShow(movies.slice(0, moviesCount));
+        setIsMoreMoviesVisible(true);
+        setMoviesToAddCount(2);
+      } else {
+        setMoviesToShow(movies);
+      }
+    } else {
+      moviesCount = 5;
+      if (movies.length > moviesCount) {
+        setMoviesToShow(movies.slice(0, moviesCount));
+        setIsMoreMoviesVisible(true);
+        setMoviesToAddCount(2);
+      } else {
+        setMoviesToShow(movies);
+      }
+    }
+  }
+
+  useEffect(() => {
+    setUpMoviesToShow();
+  }, [windowWidth, movies]);
+
   useEffect(() => {
     getSavedMovies();
 
@@ -147,6 +203,16 @@ function Movies({ loggedIn }) {
       setEmptySearchRes(false);
     }
 
+    setUpMoviesToShow();
+
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+
   }, []);
 
   return (
@@ -165,8 +231,12 @@ function Movies({ loggedIn }) {
           <p className='movies__empty-result' style={{ display: errorResult ? 'flex' : 'none' }}>
             {errorResult}
           </p>
-          <MoviesCardList movies={movies} onLikeClick={handleLikeClick} />
-          <MoreMovies />
+          <MoviesCardList movies={moviesToShow} onLikeClick={handleLikeClick} />
+          <MoreMovies
+            onMoreClick={handleMoreMoviesClick}
+            isMoreMoviesVisible={isMoreMoviesVisible}
+            moviesToAddCount={moviesToAddCount}
+          />
         </main>
         <Footer />
       </div>

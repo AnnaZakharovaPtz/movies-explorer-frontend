@@ -15,7 +15,19 @@ function SavedMovies({ loggedIn }) {
     mainApi.getUserMovies()
       .then((res) => {
         localStorage.setItem('saved-movies', JSON.stringify(res));
-        setMovies(res);
+        if (resultMovies.length > 0) {
+          const newRes = resultMovies.map((movie) => {
+            for (let i = 0; i < res.length; i++) {
+              if (res[i]._id === movie._id) {
+                return movie;
+              }
+            }
+            return false;
+          });
+          setMovies(newRes.filter(e => e !== false));
+        } else {
+          setMovies(res);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -23,7 +35,6 @@ function SavedMovies({ loggedIn }) {
   }
 
   function handleLikeClick(movie) {
-    console.log("del click", movie);
     mainApi.deleteMovie(movie._id)
       .then((res) => {
         if (res) getSavedMovies();
@@ -48,7 +59,6 @@ function SavedMovies({ loggedIn }) {
   }
 
   function handleSearchRequest(search, short) {
-    console.log('bkjsbkd', search, short);
     const savedMovies = JSON.parse(localStorage.getItem('saved-movies') || "[]");
     if (savedMovies) {
       const result = filterMovies(savedMovies, search);
