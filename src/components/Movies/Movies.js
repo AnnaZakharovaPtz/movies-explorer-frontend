@@ -120,11 +120,13 @@ function Movies({ loggedIn }) {
 
   function handleLikeClick(movie, isSaved, id) {
     setIsLikeButtonBlocked(true);
+    const savedMovies = JSON.parse(localStorage.getItem('saved-movies') || "[]");
     if (!isSaved) {
       return mainApi.saveMovie(movie)
         .then((res) => {
           setIsLikeButtonBlocked(false);
-          getSavedMovies();
+          savedMovies.push(res);
+          localStorage.setItem('saved-movies', JSON.stringify(savedMovies));
           return res._id;
         })
         .catch((err) => {
@@ -135,7 +137,10 @@ function Movies({ loggedIn }) {
         .then((res) => {
           setIsLikeButtonBlocked(false);
           if (res) {
-            getSavedMovies();
+            const updatedSavedMovies = savedMovies.filter((movie) => {
+              return movie._id !== id;
+            });
+            localStorage.setItem('saved-movies', JSON.stringify(updatedSavedMovies));
             return res._id;
           }
         })
