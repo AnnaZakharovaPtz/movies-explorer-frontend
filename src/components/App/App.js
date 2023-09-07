@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 import Main from '../Main/Main';
@@ -148,19 +148,26 @@ function App() {
       <ServerError.Provider value={serverError}>
         <div className="App">
           <Routes>
-            <Route path="/signin" element={<Login cleanup={cleanServerError} handleLogin={handleLogin} />} />
-            <Route path="/signup" element={<Register cleanup={cleanServerError} handleRegister={handleRegister} />} />
-            <Route path="/" element={<Main loggedIn={loggedIn} />} />
             <Route
-              path="/movies"
+              path='/signin'
+              element={loggedIn ? <Navigate to="/" /> : <Login cleanup={cleanServerError} handleLogin={handleLogin} />}
+            />
+            <Route
+              path="/signup"
+              element={loggedIn ? <Navigate to="/" /> : <Register cleanup={cleanServerError} handleRegister={handleRegister} />}
+            />
+
+            <Route path='/' element={<Main loggedIn={loggedIn} />} />
+            <Route
+              path='/movies'
               element={<ProtectedRoute loggedIn={loggedIn} element={Movies} />}
             />
             <Route
-              path="/saved-movies"
+              path='/saved-movies'
               element={<ProtectedRoute loggedIn={loggedIn} element={SavedMovies} />}
             />
             <Route
-              path="/profile"
+              path='/profile'
               element={<ProtectedRoute
                 loggedIn={loggedIn}
                 element={Profile}

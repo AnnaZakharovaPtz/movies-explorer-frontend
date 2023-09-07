@@ -9,6 +9,7 @@ import * as moviesApi from '../../utils/MoviesApi';
 import * as mainApi from '../../utils/MainApi';
 import { SearchFormContext } from '../../contexts/SearchFormContext';
 import { EMPTY_RESULT, MOVIES_PROCESS_ERROR } from '../../utils/errors';
+import { MOVIES_TO_ADD_L, MOVIES_TO_ADD_M, MOVIES_TO_ADD_S, MOVIES_TO_SHOW_L, MOVIES_TO_SHOW_M, MOVIES_TO_SHOW_S, MOVIES_TO_SHOW_XL, SHORT_MOVIE_DURATION, WINDOW_WIDTH_L, WINDOW_WIDTH_M, WINDOW_WIDTH_S } from '../../utils/moviesConst';
 import './Movies.css';
 import '../Main/Main.css';
 
@@ -34,15 +35,21 @@ function Movies({ loggedIn }) {
       return result;
     } else {
       setEmptySearchRes(true);
+      setIsMoreMoviesVisible(false);
       return [];
     }
   }
 
   function filterShortMovies(movies) {
     const result = movies.filter((movie) => {
-      return movie.duration <= 40;
+      return movie.duration <= SHORT_MOVIE_DURATION;
     });
-    result.length ? setEmptySearchRes(false) : setEmptySearchRes(true);
+    if (result.length) {
+      setEmptySearchRes(false)
+    } else {
+      setEmptySearchRes(true);
+      setIsMoreMoviesVisible(false);
+    }
     return result;
   }
 
@@ -66,6 +73,7 @@ function Movies({ loggedIn }) {
         setErrorResult(MOVIES_PROCESS_ERROR);
         setEmptySearchRes(false);
         setIsPreloaderVisible(false);
+        setIsMoreMoviesVisible(false);
         setMovies([]);
       });
   }
@@ -146,41 +154,45 @@ function Movies({ loggedIn }) {
 
   function setUpMoviesToShow() {
     let moviesCount;
-    if (windowWidth >= 1160) {
-      moviesCount = 16;
+    if (windowWidth >= WINDOW_WIDTH_L) {
+      moviesCount = MOVIES_TO_SHOW_XL;
       if (movies.length > moviesCount) {
         setMoviesToShow(movies.slice(0, moviesCount));
         setIsMoreMoviesVisible(true);
-        setMoviesToAddCount(4);
+        setMoviesToAddCount(MOVIES_TO_ADD_L);
       } else {
         setMoviesToShow(movies);
+        setIsMoreMoviesVisible(false);
       }
-    } else if (windowWidth >= 910) {
-      moviesCount = 12;
+    } else if (windowWidth >= WINDOW_WIDTH_M) {
+      moviesCount = MOVIES_TO_SHOW_L;
       if (movies.length > moviesCount) {
         setMoviesToShow(movies.slice(0, moviesCount));
         setIsMoreMoviesVisible(true);
-        setMoviesToAddCount(3);
+        setMoviesToAddCount(MOVIES_TO_ADD_M);
       } else {
         setMoviesToShow(movies);
+        setIsMoreMoviesVisible(false);
       }
-    } else if (windowWidth >= 728) {
-      moviesCount = 8;
+    } else if (windowWidth >= WINDOW_WIDTH_S) {
+      moviesCount = MOVIES_TO_SHOW_M;
       if (movies.length > moviesCount) {
         setMoviesToShow(movies.slice(0, moviesCount));
         setIsMoreMoviesVisible(true);
-        setMoviesToAddCount(2);
+        setMoviesToAddCount(MOVIES_TO_ADD_S);
       } else {
         setMoviesToShow(movies);
+        setIsMoreMoviesVisible(false);
       }
     } else {
-      moviesCount = 5;
+      moviesCount = MOVIES_TO_SHOW_S;
       if (movies.length > moviesCount) {
         setMoviesToShow(movies.slice(0, moviesCount));
         setIsMoreMoviesVisible(true);
-        setMoviesToAddCount(2);
+        setMoviesToAddCount(MOVIES_TO_ADD_S);
       } else {
         setMoviesToShow(movies);
+        setIsMoreMoviesVisible(false);
       }
     }
   }
