@@ -2,15 +2,13 @@ import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import './Navigation.css';
 
-function Navigation({ isDark, isScreenSmall, setMenuOpen }) {
-  const isLoggedIn = true;
-
+function Navigation({ loggedIn, isDark, isScreenSmall, setMenuOpen }) {
   function handleMenuOpen() {
     setMenuOpen(true);
   }
 
   return (
-    isLoggedIn ?
+    loggedIn === 'loggedIn' ?
       <nav className='navigation'>
         <Logo />
         {isScreenSmall ? (
